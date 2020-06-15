@@ -451,7 +451,10 @@ static void Usage()
 		"\t-s sleep\tNumber of frames for the AI to sleep before it starts\n"
 		"\t-S speed\tSync speed (100 = 30 frames/s)\n"
 		"\t-u userpath\tPath where stratagus saves preferences, log and savegame\n"
-		"\t-v mode\t\tVideo mode resolution in format <xres>x<yres>\n"
+		"\t-v <xres>x<yres>|dynamic\n"
+		"\t\t\tVideo mode resolution. eg, -v 1024x768 to use a fixed resolution of\n"
+		"\t\t\t1024x768 pixels or -v dynamic so that the resolution adjusts to\n"
+		"\t\t\tthe entire window or desktop area\n"
 		"\t-W\t\tWindowed video mode. Optionally takes a window size in <xres>x<yres>\n"
 		"map is relative to StratagusLibPath=datapath, use ./map for relative to cwd\n",
 		Parameters::Instance.applicationName.c_str());
@@ -562,19 +565,24 @@ void ParseCommandLine(int argc, char **argv, Parameters &parameters)
 				Parameters::Instance.SetUserDirectory(optarg);
 				continue;
 			case 'v': {
-				sep = strchr(optarg, 'x');
-				if (!sep || !*(sep + 1)) {
-					fprintf(stderr, "%s: incorrect format of video mode resolution -- '%s'\n", argv[0], optarg);
-					Usage();
-					exit(-1);
-				}
-				Video.Height = atoi(sep + 1);
-				*sep = 0;
-				Video.Width = atoi(optarg);
-				if (!Video.Height || !Video.Width) {
-					fprintf(stderr, "%s: incorrect format of video mode resolution -- '%sx%s'\n", argv[0], optarg, sep + 1);
-					Usage();
-					exit(-1);
+				if (strncmp(optarg, "dynamic", sizeof("dynamic")) == 0) {
+					// dynamic mode adjusts video width and height to match window/desktop width and height.
+					Video.DynamicResolution = true;
+				} else {
+					sep = strchr(optarg, 'x');
+					if (!sep || !*(sep + 1)) {
+						fprintf(stderr, "%s: incorrect format of video mode resolution -- '%s'\n", argv[0], optarg);
+						Usage();
+						exit(-1);
+					}
+					Video.Height = atoi(sep + 1);
+					*sep = 0;
+					Video.Width = atoi(optarg);
+					if (!Video.Height || !Video.Width) {
+						fprintf(stderr, "%s: incorrect format of video mode resolution -- '%sx%s'\n", argv[0], optarg, sep + 1);
+						Usage();
+						exit(-1);
+					}
 				}
 				continue;
 			}

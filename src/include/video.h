@@ -213,7 +213,7 @@ struct EventCallback {
 class CVideo
 {
 public:
-	CVideo() : Width(0), Height(0), WindowWidth(0), WindowHeight(0), Depth(0), FullScreen(false) {}
+	CVideo() : Width(0), Height(0), WindowWidth(0), WindowHeight(0), Depth(0), FullScreen(false), DynamicResolution(false) {}
 
 	void LockScreen();
 	void UnlockScreen();
@@ -291,6 +291,7 @@ public:
 	SDL_Cursor *blankCursor;
 	int Depth;
 	bool FullScreen;
+	bool DynamicResolution;		// Game resolution (Width/Height) follows WindowWidth and WindowHeight.
 };
 
 extern CVideo Video;

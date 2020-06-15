@@ -539,6 +539,15 @@ static void SdlDoEvent(const EventCallback &callbacks, SDL_Event &event)
 				}
 				}
 				break;
+				case SDL_WINDOWEVENT_RESIZED:
+					Video.WindowWidth = event.window.data1;
+					Video.WindowHeight = event.window.data2;
+					if (Video.DynamicResolution) {
+						Video.Width = Video.WindowWidth;
+						Video.Height = Video.WindowHeight;
+						Video.ResizeScreen(Video.Width, Video.Height);
+					}
+					break;
 			}
 			break;
 

@@ -48,6 +48,7 @@
 ** We support (depending on the platform) resolutions:
 ** 640x480, 800x600, 1024x768, 1600x1200
 ** with colors 8,15,16,24,32 bit
+** TODO add note about dynamic mode.
 **
 ** @see video.h @see video.cpp
 **
