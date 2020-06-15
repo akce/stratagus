@@ -568,6 +568,7 @@ void ParseCommandLine(int argc, char **argv, Parameters &parameters)
 				if (strncmp(optarg, "dynamic", sizeof("dynamic")) == 0) {
 					// dynamic mode adjusts video width and height to match window/desktop width and height.
 					Video.DynamicResolution = true;
+					VideoForceDynamicResolution = true;
 				} else {
 					sep = strchr(optarg, 'x');
 					if (!sep || !*(sep + 1)) {

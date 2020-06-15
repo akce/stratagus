@@ -13,6 +13,7 @@ public:
 	int Height;
 	int Depth;
 	bool FullScreen;
+	bool DynamicResolution;
 	bool ResizeScreen(int width, int height);
 };
 

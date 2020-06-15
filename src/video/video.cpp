@@ -157,6 +157,7 @@ CVideo Video;
 /*static*/ CColorCycling *CColorCycling::s_instance = NULL;
 
 char VideoForceFullScreen;           /// fullscreen set from commandline
+bool VideoForceDynamicResolution;    /// dynamic resolution set from commandline
 
 double NextFrameTicks;               /// Ticks of begin of the next frame
 unsigned long FrameCounter;          /// Current frame number

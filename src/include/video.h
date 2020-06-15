@@ -310,6 +310,9 @@ extern int SkipFrames;
 /// Fullscreen or windowed set from commandline.
 extern char VideoForceFullScreen;
 
+/// Dynamic resolution set from commandline.
+extern bool VideoForceDynamicResolution;
+
 /// Next frame ticks
 extern double NextFrameTicks;
 
