@@ -45,10 +45,12 @@
 **   The general setup of platform dependent video and basic video
 ** functionalities is done with function @see InitVideo
 **
-** We support (depending on the platform) resolutions:
+** We support (depending on the platform) a number of resolutions
+** including:
 ** 640x480, 800x600, 1024x768, 1600x1200
 ** with colors 8,15,16,24,32 bit
-** TODO add note about dynamic mode.
+** Resolution can also automatically change to match viewport
+** when DynamicResolution is turned on.
 **
 ** @see video.h @see video.cpp
 **
