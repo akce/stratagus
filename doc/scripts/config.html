@@ -40,7 +40,7 @@
 <a href="../index.html">Stratagus</a>
 <a href="../faq.html">FAQ</a>
 <a href="ai.html">PREV</a>
-<a href="game.html">NEXT</a>
+<a href="events.html">NEXT</a>
 <a href="index.html">LUA Index</a>
 <hr>
 <a href="#AStar">AStar</a>
@@ -303,6 +303,8 @@ Determine if the video game resolution is automatically adjusted to match displa
 
 <p>
 When enabled, the video game resolution will automatically adjust to match the window size (if in window mode) or screen size (if in fullscreen mode). ie, calls to <a href="#GetVideoResolution">GetVideoResolution</a> will return viewport size.
+<p>
+Resolution changes will then result in <a href="events.html#ResolutionChanged">ResolutionChanged</a> events being generated.
 <p>
 When disabled (the default setting), the video game resolution will remain the same even as the viewport dimension changes.
 
@@ -1191,6 +1193,8 @@ Enables or disables dynamic resolution.
 
 <p>
 When enabled, the video game resolution automatically adjusts to match the window size (when in windowed mode) or screen size (when in fullscreen mode).
+<p>
+Resolution changes will then result in <a href="events.html#ResolutionChanged">ResolutionChanged</a> events being generated.
 <p>
 When disabled, video game resolution will only change via <a href="#SetVideoResolution">SetVideoResolution</a>.
 

@@ -546,6 +546,7 @@ static void SdlDoEvent(const EventCallback &callbacks, SDL_Event &event)
 						Video.Width = Video.WindowWidth;
 						Video.Height = Video.WindowHeight;
 						Video.ResizeScreen(Video.Width, Video.Height);
+						CclCommand("if (ResolutionChanged ~= nil) then ResolutionChanged() end");
 					}
 					break;
 			}

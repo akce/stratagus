@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<!--
+----	(c) Copyright 2002-2011 by François Beerten
+
+----    This program is free software; you can redistribute it and/or modify
+----    it under the terms of the GNU General Public License as published by
+----    the Free Software Foundation; only version 2 of the License.
+----
+----    This program is distributed in the hope that it will be useful,
+----    but WITHOUT ANY WARRANTY; without even the implied warranty of
+----    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+----    GNU General Public License for more details.
+----
+----    You should have received a copy of the GNU General Public License
+----    along with this program; if not, write to the Free Software
+----    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+----    02110-1301, USA.
+-->
+    <title>Stratagus Configuration Language Description: Events</title>
+</head>
+<body>
+<pre width=80>
+         _________ __                 __
+        /   _____//  |_____________ _/  |______     ____  __ __  ______
+        \_____  \\   __\_  __ \__  \\   __\__  \   / ___\|  |  \/  ___/
+        /        \|  |  |  | \// __ \|  |  / __ \_/ /_/  >  |  /\___ \
+       /_______  /|__|  |__|  (____  /__| (____  /\___  /|____//____  >
+               \/                  \/          \//_____/            \/
+    ______________________                           ______________________
+                          T H E   W A R   B E G I N S
+           Stratagus - A free fantasy real time strategy game engine
+</pre>
+<hr>
+<h1>Stratagus Configuration Language Description: Events</h1>
+<hr>
+<a href="../index.html">Stratagus</a>
+<a href="../faq.html">FAQ</a>
+<a href="config.html">PREV</a>
+<a href="game.html">NEXT</a>
+<a href="index.html">LUA Index</a>
+<hr>
+<a href="#ResolutionChanged">ResolutionChanged</a>
+<hr>
+<h2>Intro - Introduction to stratagus events</h2>
+
+Stratagus Events allow for games to react to changes in the Stratagus engine.
+
+<h2>Functions</h2>
+
+<a name="ResolutionChanged"></a>
+<h3>ResolutionChanged()</h3>
+
+Video resolution has been changed.
+<p>
+This event will be generated only when DynamicResolution is turned on and the containing Window has been resized.
+<p>
+Games can check Video.Width and Video.Height or call <a href="config.html#GetVideoResolution">GetVideoResolution</a>
+to find the new video resolution.
+<h4>Example</h4>
+
+<pre>
+    function ResolutionChanged()
+        new_width, new_height = GetVideoResolution()
+        ReCalculateGameScreen(new_width, new_height)
+        RedrawGameScreen()
+        ..
+        ..
+    end
+</pre>
+<h4>See also</h4>
+<a href="config.html#GetVideoDynamicResolution">GetVideoDynamicResolution</a>
+<p>
+<a href="config.html#GetVideoResolution">GetVideoResolution</a>
+<p>
+<a href="config.html#SetVideoResolution">SetVideoResolution</a>
+<p>
+<a href="config.html#SetVideoDynamicResolution">SetVideoDynamicResolution</a>
+
+<hr>
+(C) Copyright 2002-2015 by The <a href="https://launchpad.net/stratagus">Stratagus</a> Project under the <a href="../gpl.html">GNU General Public License</a>.<br>
+All trademarks and copyrights on this page are owned by their respective owners.<br>
+</body>
+</html>
