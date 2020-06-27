@@ -270,9 +270,9 @@ void CVideo::ClearScreen()
 */
 bool CVideo::ResizeScreen(int w, int h)
 {
-	if (!(SDL_GetWindowFlags(TheWindow) & SDL_WINDOW_FULLSCREEN_DESKTOP)
-		&& Video.Width == Video.WindowWidth
-		&& Video.Height == Video.WindowHeight) {
+	if (!((SDL_GetWindowFlags(TheWindow) & SDL_WINDOW_FULLSCREEN_DESKTOP) || DynamicResolution)
+		&& Width == WindowWidth
+		&& Height == WindowHeight) {
 		// if initially window was the same size as res, keep it that way
 		SDL_SetWindowSize(TheWindow, w, h);
 	}
